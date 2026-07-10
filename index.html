@@ -913,14 +913,24 @@ body, a, button { cursor: none !important; }
 
 <style>
   :root {
-    --c-glass-bg: rgba(255, 255, 255, 0.78);
-    --c-glass-border: rgba(255, 255, 255, 0.6);
-    --c-text-main: #1a1d24;
-    --c-text-muted: #555e6b;
-    --c-btn-dark: #333842;
-    --c-btn-dark-hover: #1e2229;
+    --c-glass-bg: rgba(23, 26, 32, 0.94);
+    --c-glass-border: rgba(255, 255, 255, 0.08);
+    --c-text-main: #f3f4f6;
+    --c-text-muted: #9ca3af;
+    --c-btn-dark: #2d3139;
+    --c-btn-dark-hover: #3d424e;
     --c-gold-grad: linear-gradient(135deg, #ffe094 0%, #e6a100 100%);
-    --c-gold-shadow: rgba(230, 161, 0, 0.2);
+    --c-gold-shadow: rgba(230, 161, 0, 0.15);
+  }
+
+  /* Animacja płynnego pojawiania się widoków po kliknięciu */
+  @keyframes cookiesFadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .cookies-view {
+    animation: cookiesFadeIn 0.3s ease-in-out forwards;
   }
 
   .cookies-banner {
@@ -951,7 +961,7 @@ body, a, button { cursor: none !important; }
     border: 1px solid var(--c-glass-border);
     border-radius: 22px;
     padding: 1rem 1.25rem;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255,255,255,0.6);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255,255,255,0.05);
     font-family: "Inter", system-ui, -apple-system, sans-serif;
   }
 
@@ -978,7 +988,10 @@ body, a, button { cursor: none !important; }
   }
 
   .cookies-text { font-size: 0.82rem; line-height: 1.45; color: var(--c-text-muted); margin: 0; }
-  .cookies-text a { color: var(--c-text-main); font-weight: 600; text-decoration: underline; }
+  
+  /* Link dostosowany do Twoich wytycznych: biały i bez podkreślenia */
+  .cookies-text a { color: #ffffff; font-weight: 600; text-decoration: none; }
+  .cookies-text a:hover { text-decoration: underline; opacity: 0.9; }
 
   .cookies-actions-stack { display: flex; flex-direction: column; gap: 0.4rem; min-width: 135px; flex-shrink: 0; }
 
@@ -997,47 +1010,57 @@ body, a, button { cursor: none !important; }
     box-sizing: border-box;
   }
 
-  .cookies-btn-settings { background: rgba(0, 0, 0, 0.05); color: var(--c-text-main); }
-  .cookies-btn-settings:hover { background: rgba(0, 0, 0, 0.09); }
-  .cookies-btn-reject { background: rgb(216, 0, 0); color: #ffffff; }
-  .cookies-btn-reject:hover { background: rgb(255, 0, 0); }
+  .cookies-btn-settings { background: rgba(255, 255, 255, 0.08); color: var(--c-text-main); }
+  .cookies-btn-settings:hover { background: rgba(255, 255, 255, 0.15); }
+  .cookies-btn-reject { background: rgb(180, 0, 0); color: #ffffff; }
+  .cookies-btn-reject:hover { background: rgb(220, 0, 0); }
   .cookies-btn-accept, .cookies-btn-save-top { background: var(--c-gold-grad); color: #3b2700; box-shadow: 0 3px 10px var(--c-gold-shadow); }
-  .cookies-btn-accept:hover, .cookies-btn-save-top:hover { filter: brightness(1.03); box-shadow: 0 5px 14px var(--c-gold-shadow); }
+  .cookies-btn-accept:hover, .cookies-btn-save-top:hover { filter: brightness(1.05); box-shadow: 0 5px 14px var(--c-gold-shadow); }
 
   .cookies-settings-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-  .cookies-btn-subtle { background: transparent; border: none; color: var(--c-text-muted); font-weight: 600; font-size: 0.85rem; cursor: pointer; font-family: inherit; }
+  .cookies-btn-subtle { background: transparent; border: none; color: var(--c-text-muted); font-weight: 600; font-size: 0.85rem; cursor: pointer; font-family: inherit; transition: color 0.2s ease; }
+  .cookies-btn-subtle:hover { color: var(--c-text-main); }
   .cookies-categories-list { display: flex; flex-direction: column; gap: 0.5rem; }
-  .cookies-cat-card { background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 14px; padding: 0.75rem 1rem; }
+  .cookies-cat-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 14px; padding: 0.75rem 1rem; }
   .cookies-cat-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .cookies-cat-info { display: flex; align-items: center; gap: 0.75rem; }
   .cookies-cat-icon { font-size: 1.2rem; }
   .cookies-cat-title { font-size: 0.9rem; font-weight: 700; color: var(--c-text-main); margin: 0; }
   .cookies-cat-desc { font-size: 0.78rem; color: var(--c-text-muted); margin: 0; }
 
-  .cookies-toggle-btn, .cookies-toggle-fallback { position: relative; width: 38px; height: 22px; border-radius: 999px; background: #cbd1db; border: none; cursor: pointer; flex-shrink: 0; transition: background 0.2s ease; }
+  .cookies-toggle-btn, .cookies-toggle-fallback { position: relative; width: 38px; height: 22px; border-radius: 999px; background: #374151; border: none; cursor: pointer; flex-shrink: 0; transition: background 0.2s ease; }
   .cookies-toggle-btn::after, .cookies-toggle-fallback::after { content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: #ffffff; transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .cookies-toggle-btn[aria-pressed="true"] { background: #e6a100; }
   .cookies-toggle-btn[aria-pressed="true"]::after { transform: translateX(16px); }
-  .cookies-toggle--locked { background: #a6adb9; }
+  .cookies-toggle--locked { background: #4b5563; }
   .cookies-toggle--locked::after { transform: translateX(16px); }
 
   @media (max-width: 640px) {
     .cookies-banner { bottom: 0.5rem; padding: 0 0.5rem; }
-    .cookies-container { padding: 1rem; border-radius: 18px; }
+    .cookies-container { padding: 0.9rem; border-radius: 18px; }
     .cookies-main-layout { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 0.75rem; }
     .cookies-graphic-wrapper { grid-column: 1; grid-row: 1; width: 44px; height: 44px; }
     .cookies-copy { grid-column: 2; grid-row: 1; }
-    .cookies-text { grid-column: 1 / span 2; grid-row: 2; margin-top: 0.25rem; }
-    .cookies-actions-stack { grid-column: 1 / span 2; grid-row: 3; display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; width: 100%; margin-top: 0.5rem; }
+    .cookies-text { grid-column: 1 / span 2; grid-row: 2; margin-top: 0.15rem; }
+    
+    .cookies-actions-stack { 
+      grid-column: 1 / span 2; 
+      grid-row: 3; 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 0.4rem; 
+      width: 100%; 
+      margin-top: 0.4rem; 
+    }
     .cookies-btn-accept { grid-column: 1 / span 2; order: -1; }
     .cookies-cat-row { flex-direction: row; align-items: center; }
     .cookies-cat-desc { display: none; }
-      .preloader-logo {
-    width: clamp(250px, 18vw, 160px);
-    height: auto;
-    object-fit: contain;
-    animation: preloaderLogoPulse 2.4s ease-in-out infinite;
-  }
+    .preloader-logo {
+      width: clamp(250px, 18vw, 160px);
+      height: auto;
+      object-fit: contain;
+      animation: preloaderLogoPulse 2.4s ease-in-out infinite;
+    }
   }
 </style>
 
@@ -1075,9 +1098,7 @@ body, a, button { cursor: none !important; }
     return payload;
   }
 
-  // FAKTYCZNE URUCHAMIANIE / BLOKOWANIE SKRYPTÓW ŚLEDZĄCYCH W PRZEGLĄDARCE
   function manageDynamicScripts(consent) {
-    // 1. OBSŁUGA STATYSTYK (np. Google Analytics)
     const GA_SCRIPT_ID = "dynamic-google-analytics";
     let existingGaScript = document.getElementById(GA_SCRIPT_ID);
 
@@ -1087,7 +1108,6 @@ body, a, button { cursor: none !important; }
         const script = document.createElement("script");
         script.id = GA_SCRIPT_ID;
         script.async = true;
-        // TUTAJ WPRZYSZŁOŚCI WKLEJASZ SWÓJ LINK DO GA4 (ZAMIEŃ ID 'G-XXXXXX'):
         script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXX"; 
         
         script.onload = function() {
@@ -1102,16 +1122,13 @@ body, a, button { cursor: none !important; }
       console.log("RODO: Statystyki odrzucone/brak zgody. Usuwam skrypty...");
       if (existingGaScript) {
         existingGaScript.remove();
-        // Czyszczenie obiektów globalnych po GA dla pewności prawnej
         window.dataLayer = undefined;
         window.gtag = undefined;
       }
     }
 
-    // 2. OBSŁUGA MARKETINGU (np. Facebook/Meta Pixel)
     if (consent.marketing) {
-      console.log("RODO: Marketing zaakceptowany.");
-      // Tu analogicznie wstrzykujesz Pixel jeśli kiedyś dodasz
+      console.log("RODO: Marketing zaakceptowane.");
     } else {
       console.log("RODO: Marketing odrzucony.");
     }
@@ -1136,7 +1153,6 @@ body, a, button { cursor: none !important; }
       hideBanner();
     },
     reopen() {
-      // Pobieramy aktualny stan z bazy przeglądarki i ustawiamy suwaki przed otwarciem
       const existing = readConsent();
       if (existing) {
         switchAnalytics.setAttribute("aria-pressed", String(!!existing.analytics));
@@ -1146,23 +1162,18 @@ body, a, button { cursor: none !important; }
         switchMarketing.setAttribute("aria-pressed", "false");
       }
       viewMain.hidden = true;
-      viewSettings.hidden = false; // Od razu wrzucamy do zaawansowanych po kliknięciu w stopce
+      viewSettings.hidden = false;
       showBanner();
     }
   };
 
   window.addEventListener("load", () => {
-    // TRYB PRODUKCYJNY (Szanuje localStorage):
     const existing = readConsent();
     if (!existing) { 
       setTimeout(showBanner, 1000); 
     } else { 
       manageDynamicScripts(existing); 
     }
-
-    // TRYB TESTOWY (Wymuszenie wyskakiwania przy każdym odświeżeniu):
-    // Jeśli chcesz ciągle widzieć baner podczas testowania stylów, odkomentuj linijkę niżej:
-    // setTimeout(showBanner, 600);
   });
 })();
 </script>
@@ -1644,13 +1655,14 @@ window.addEventListener('resize',forceHeight);
 <style>
   .scroll-section {
     position: relative;
-    width: 100%;
-    min-height: 115vh;
+    width: 100% !important;
+    min-height: 90vh !important; /* Lekko niższa sekcja na PC pod navbar */
     background: #ffffff !important;
     display: flex;
     justify-content: center;
     scroll-snap-align: none !important;
-    overflow: hidden;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 
   /* --- Ramka wokół całej sekcji --- */
@@ -1663,9 +1675,7 @@ window.addEventListener('resize',forceHeight);
   }
 
   .scroll-container {
-    position: sticky;
-    top: 0;
-    height: 100vh;
+    position: relative;
     width: 100%;
     max-width: 75rem;
     padding: 2.5rem;
@@ -1705,23 +1715,24 @@ window.addEventListener('resize',forceHeight);
     font-family: "Inter", sans-serif;
     font-size: clamp(1.4rem, 3.5vw, 2.75rem);
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.45;
     text-align: center;
     letter-spacing: -0.02em;
     margin-bottom: 2rem;
     text-transform: uppercase;
-    max-width: 56rem;
+    max-width: 46rem;
+    width: 100%;
   }
 
-  .scroll-word {
+  /* Klasa dla pojedynczych liter */
+  .scroll-letter {
     color: rgba(17, 17, 17, 0.15);
-    transition: color 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-    display: inline-block;
-    margin-right: 0.24em;
+    transition: color 0.25s cubic-bezier(0.1, 0.8, 0.2, 1);
+    display: inline;
     will-change: color;
   }
 
-  .scroll-word.active {
+  .scroll-letter.active {
     color: #111111;
   }
 
@@ -1748,7 +1759,7 @@ window.addEventListener('resize',forceHeight);
     opacity: 0.4;
   }
 
-  /* --- Narożniki: kreska zewnętrzna + zdublowana wewnętrzna --- */
+  /* --- Narożniki --- */
   .corner {
     position: absolute;
     width: 26px;
@@ -1767,7 +1778,6 @@ window.addEventListener('resize',forceHeight);
   .corner::before { width: 100%; height: 1.5px; }
   .corner::after { width: 1.5px; height: 100%; }
 
-  /* Zdublowana wewnętrzna kreska, przesunięta o kilka px */
   .corner-dup {
     position: absolute;
     display: block;
@@ -1812,10 +1822,11 @@ window.addEventListener('resize',forceHeight);
   .corner--br .corner-dup::before { bottom: 0; right: 0; }
   .corner--br .corner-dup::after { bottom: 0; right: 0; }
 
-  /* --- Optymalizacja pod mobile --- */
+  /* --- MOBILES --- */
   @media (max-width: 768px) {
     .scroll-section {
-      min-height: 105vh; /* niższa sekcja = krótszy, szybszy scroll-efekt */
+      min-height: 75vh !important;
+      height: 75vh !important;
     }
 
     .section-frame {
@@ -1823,24 +1834,21 @@ window.addEventListener('resize',forceHeight);
     }
 
     .scroll-container {
-      padding: 1.25rem;
+      padding: 2.5rem 1.5rem !important;
     }
 
     .scroll-text {
-      max-width: 92vw;
+      max-width: 82vw;
     }
 
     .corner {
-      display: block; /* widoczne na mobile, nie ukryte */
+      display: block;
       width: 16px;
       height: 16px;
       opacity: 0.45;
     }
 
-    .corner-dup {
-      display: block;
-    }
-
+    .corner-dup { display: block; }
     .corner-dup::before { width: 55%; }
     .corner-dup::after { height: 55%; }
 
@@ -1859,7 +1867,8 @@ window.addEventListener('resize',forceHeight);
 
   @media (max-width: 420px) {
     .scroll-section {
-      min-height: 100vh;
+      min-height: 70vh !important;
+      height: 70vh !important;
     }
 
     .scroll-kicker {
@@ -1876,29 +1885,50 @@ window.addEventListener('resize',forceHeight);
     
     if (!textElement || !section) return;
 
-    const words = textElement.innerText.trim().split(/\s+/);
-    textElement.innerHTML = words
-      .map(word => `<span class="scroll-word">${word}</span>`)
-      .join(" ");
+    const originalText = textElement.innerText.trim();
+    let letterHTML = "";
+    
+    for (let i = 0; i < originalText.length; i++) {
+      const char = originalText[i];
+      if (char === " ") {
+        letterHTML += " "; 
+      } else {
+        letterHTML += `<span class="scroll-letter">${char}</span>`;
+      }
+    }
+    textElement.innerHTML = letterHTML;
 
-    const spanElements = textElement.querySelectorAll(".scroll-word");
-    const totalWords = spanElements.length;
+    const letterElements = textElement.querySelectorAll(".scroll-letter");
+    const totalLetters = letterElements.length;
 
     let isVisible = false;
     let ticking = false;
 
-    // --- Wygładzanie reakcji na scroll (tekst "dogania" scroll z opóźnieniem) ---
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const isSmallMobile = window.matchMedia("(max-width: 420px)").matches;
+
+    if (isMobile) {
+      const targetHeight = isSmallMobile ? "70vh" : "75vh";
+      section.style.setProperty("min-height", targetHeight, "important");
+      section.style.setProperty("height", targetHeight, "important");
+    }
+
     let targetProgress = 0;
     let smoothProgress = 0;
-    const SMOOTHING = 0.045; // im mniejsza wartość, tym wolniejsza reakcja
+    
+    const SMOOTHING = isMobile ? 0.22 : 0.075; 
     let rafId = null;
 
     function renderFrame() {
-      smoothProgress += (targetProgress - smoothProgress) * SMOOTHING;
+      if (Math.abs(targetProgress - smoothProgress) < 0.0001) {
+        smoothProgress = targetProgress;
+      } else {
+        smoothProgress += (targetProgress - smoothProgress) * SMOOTHING;
+      }
 
-      spanElements.forEach((span, index) => {
-        const wordThreshold = index / totalWords;
-        if (smoothProgress >= wordThreshold) {
+      letterElements.forEach((span, index) => {
+        const letterThreshold = index / totalLetters;
+        if (smoothProgress >= letterThreshold) {
           span.classList.add("active");
         } else {
           span.classList.remove("active");
@@ -1914,13 +1944,17 @@ window.addEventListener('resize',forceHeight);
 
     function updateTargetProgress() {
       const sectionRect = section.getBoundingClientRect();
-      const sectionHeight = sectionRect.height;
+      const elementHeight = sectionRect.height;
+      const viewHeight = window.innerHeight;
 
-      const startEval = -sectionRect.top;
-      const maxScrollDistance = sectionHeight - window.innerHeight;
-
-      const scrollProgress = maxScrollDistance > 0 ? startEval / maxScrollDistance : 0;
-      targetProgress = Math.max(0, Math.min(1, scrollProgress));
+      if (!isMobile) {
+        const progress = (viewHeight - sectionRect.top) / (viewHeight + elementHeight);
+        // Próg zmniejszony z 0.28 na 0.22 -> animacja startuje wcześniej, biorąc pod uwagę navbar
+        targetProgress = Math.max(0, Math.min(1, (progress - 0.22) * 1.85));
+      } else {
+        const progress = (viewHeight - sectionRect.top) / (viewHeight + elementHeight / 1.3);
+        targetProgress = Math.max(0, Math.min(1, progress * 1.45)); 
+      }
 
       ticking = false;
     }
