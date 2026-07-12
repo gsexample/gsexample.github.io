@@ -1012,7 +1012,7 @@ body, a, button { cursor: none !important; }
 
   .cookies-btn-settings { background: rgba(255, 255, 255, 0.08); color: var(--c-text-main); }
   .cookies-btn-settings:hover { background: rgba(255, 255, 255, 0.15); }
-  .cookies-btn-reject { background: rgb(180, 0, 0); color: #ffffff; }
+  .cookies-btn-reject { background: rgb(80, 0, 0); color: #ffffff; }
   .cookies-btn-reject:hover { background: rgb(220, 0, 0); }
   .cookies-btn-accept, .cookies-btn-save-top { background: var(--c-gold-grad); color: #3b2700; box-shadow: 0 3px 10px var(--c-gold-shadow); }
   .cookies-btn-accept:hover, .cookies-btn-save-top:hover { filter: brightness(1.05); box-shadow: 0 5px 14px var(--c-gold-shadow); }
@@ -1994,11 +1994,11 @@ window.addEventListener('resize',forceHeight);
       <div class="abc-team--card">
         <img src="zdjecie4.png" alt="">
           <div class="abc-team--name">
-            Kasia 
+            Grzegorz 
           </div>
         <div class="abc-team--overlay">
           <div class="abc-team--inner">
-            <h3>Kasia
+            <h3>Grzegorz
             </h3>
             <p>To jest przykładowy tekst służący jedynie do wypełnienia miejsca w projekcie i nie niesie ze sobą żadnej konkretnej treści. Ma on na celu pokazanie, jak będzie wyglądał układ tekstu po dodaniu właściwej zawartości.</p>
           </div>
@@ -2019,11 +2019,11 @@ window.addEventListener('resize',forceHeight);
 
       <div class="abc-team--card">
         <img src="zdjecie3.png" alt="">
-        <div class="abc-team--name">Grzegorz</div>
+        <div class="abc-team--name">Michalina</div>
 
         <div class="abc-team--overlay">
           <div class="abc-team--inner">
-            <h3>Grzegorz</h3>
+            <h3>Michalina</h3>
             <p>To jest przykładowy tekst służący jedynie do wypełnienia miejsca w projekcie i nie niesie ze sobą żadnej konkretnej treści. Ma on na celu pokazanie, jak będzie wyglądał układ tekstu po dodaniu właściwej zawartości.</p>
           </div>
         </div>
@@ -2031,11 +2031,11 @@ window.addEventListener('resize',forceHeight);
 
       <div class="abc-team--card">
         <img src="zdjecie2.png" alt="">
-        <div class="abc-team--name">Mariusz</div>
+        <div class="abc-team--name">Ania</div>
 
         <div class="abc-team--overlay">
           <div class="abc-team--inner">
-            <h3>Mariusz</h3>
+            <h3>Ania</h3>
             <p>To jest przykładowy tekst służący jedynie do wypełnienia miejsca w projekcie i nie niesie ze sobą żadnej konkretnej treści. Ma on na celu pokazanie, jak będzie wyglądał układ tekstu po dodaniu właściwej zawartości.</p>
           </div>
         </div>
@@ -2062,12 +2062,13 @@ window.addEventListener('resize',forceHeight);
 }
 
 .abc-team{
-padding:8rem 5%;
+padding:8vw 0; 
 background:#0b0b0b;
 }
 
 .abc-team--wrap{
-max-width:90rem;
+width: 88%; 
+max-width: 1440px; 
 margin:auto;
 }
 
@@ -2096,12 +2097,12 @@ transform:translateY(0);
 opacity:1;
 }
 
+/* Zmiana: Podbita wysokość bazy na PC z 30rem do 35rem */
 .abc-team--card img{
 width:100%;
-height:34rem;
+height:35rem; 
 object-fit:cover;
 transition:transform .8s ease;
-
 }
 
 .abc-team--card:hover img{
@@ -2109,7 +2110,6 @@ transform:scale(1.05);
 }
 
 /* imię */
-
 .abc-team--name{
 position:absolute;
 bottom:1rem;
@@ -2136,7 +2136,6 @@ transform:translateX(-50%) translateY(.6rem);
 }
 
 /* overlay */
-
 .abc-team--overlay{
 position:absolute;
 inset:0;
@@ -2144,9 +2143,9 @@ background:linear-gradient(to bottom, rgba(0,0,0,.05) 10%, rgba(0,0,0,.55) 60%, 
 opacity:0;
 transition:opacity .35s ease;
 display:flex;
-align-items:center; /* wyśrodkowanie pionowe */
-justify-content:center; /* wyśrodkowanie poziome */
-padding:1rem; /* dla komfortu przy dłuższym tekście */
+align-items:center; 
+justify-content:center; 
+padding:1.5rem; 
 text-align:center;
 }
 
@@ -2174,7 +2173,7 @@ font-size:.95rem;
 line-height:1.6;
 color:rgba(255,255,255,.85);
 margin:0;
-word-break:break-word; /* pozwala zawijać dłuższe zdania */
+word-break:break-word; 
 }
 
 .abc-team--card:hover .abc-team--inner,
@@ -2184,55 +2183,60 @@ opacity:1;
 }
 
 /* responsive */
-
 @media(max-width:1100px){
 .abc-team--grid{
 grid-template-columns:repeat(2,1fr);
+gap: 1.5rem;
+}
+/* Zmiana: dopasowana wysokość pod układ 2x2 */
+.abc-team--card img{
+height:32rem;
+}
+}
+
+@media(max-width:768px){
+.abc-team{
+padding: 10vw 0;
+}
+.abc-team--wrap {
+width: 90%; 
 }
 }
 
 @media(max-width:600px){
 .abc-team--grid{
 grid-template-columns:1fr;
+gap: 1.5rem;
 }
+/* Zmiana: Podbita wysokość na mobile z 26rem do 30rem dla lepszych proporcji pionowych */
+.abc-team--card img{
+height:30rem; 
 }
-/* ===== MOBILE CENTER FIX ===== */
-@media (max-width: 768px) {
-  .abc-team--wrap{
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 </style>
 
 <script>
-// UNIQUE TEAM FADE-IN – NEW VARIABLES
 const teamCardsFade = document.querySelectorAll(".abc-team--card");
 
-// ustawienie początkowego stanu
 teamCardsFade.forEach((teamCard, idx) => {
   teamCard.style.opacity = 0;
   teamCard.style.transform = "translateY(40px)";
   teamCard.style.transition = `transform .7s cubic-bezier(.22,1,.36,1) ${idx*0.12}s, opacity .7s ease ${idx*0.12}s`;
 });
 
-// IntersectionObserver
 const teamFadeObserver = new IntersectionObserver((entries)=>{
   entries.forEach(entry => {
     const card = entry.target;
     const index = Array.from(teamCardsFade).indexOf(card);
 
     if(entry.isIntersecting){
-      // fade-in tylko przy wejściu od góry
       if(entry.boundingClientRect.top > 0){
         setTimeout(() => {
           card.style.opacity = 1;
           card.style.transform = "translateY(0)";
-        }, index * 120); // staggered delay
+        }, index * 120); 
       }
     } else {
-      // reset tylko jeśli przewijasz w górę
       if(entry.boundingClientRect.top > 0){
         card.style.opacity = 0;
         card.style.transform = "translateY(40px)";
@@ -2241,10 +2245,8 @@ const teamFadeObserver = new IntersectionObserver((entries)=>{
   });
 },{threshold:0.1});
 
-// obserwowanie kart
 teamCardsFade.forEach(card => teamFadeObserver.observe(card));
 
-// klik overlay
 teamCardsFade.forEach(teamCard=>{
   teamCard.addEventListener("click", ()=>{
     if(teamCard.classList.contains("active")){
@@ -2597,403 +2599,447 @@ refreshStackLayers();
 
 
 <section id="s2" class="abc--cennik abc--fade">
-  
-<div class="abc--cennik-wrap">
+  <div class="abc--cennik-wrap">
+    
+    <!-- LEWA STRONA: ROZBUDOWANA SIATKA BENTO (BEZ DUPLIKATÓW) -->
+    <div class="abc--cennik-image-frame">
+      <div class="abc--bento-container">
+        
+        <!-- 1. GŁÓWNE ZDJĘCIE (GÓRA) -->
+        <div class="abc--bento-item abc--bento-main abc--reveal-bento">
+          <img id="bento-img-main" src="https://st5.depositphotos.com/12982378/66091/i/450/depositphotos_660916862-stock-photo-hair-salon-tools-cropped-view.jpg" alt="Salon main">
+        </div>
+        
+        <!-- 2. ŚRODKOWY/DOLNY WPIS (Wspólny kontener dla zachowania proporcji) -->
+        <div class="abc--bento-row-wrapper">
+          <!-- LEWE DUŻE -->
+          <div class="abc--bento-item abc--bento-img-1 abc--reveal-bento">
+            <img id="bento-img-1" src="https://img.freepik.com/darmowe-zdjecie/klientka-podcina-wlosy-u-fryzjera_23-2150771254.jpg?semt=ais_hybrid&w=740&q=80" alt="Detal">
+          </div>
+          <!-- PRAWE DWA W PIONIE -->
+          <div class="abc--bento-right-stack">
+            <div class="abc--bento-item abc--bento-img-2 abc--reveal-bento">
+              <img id="bento-img-2" src="https://st2.depositphotos.com/3450711/11282/i/450/depositphotos_112822918-stock-photo-closeup-macro-shot-image-of.jpg" alt="Stylizacja">
+            </div>
+            <div class="abc--bento-item abc--bento-img-3 abc--reveal-bento">
+              <img id="bento-img-3" src="https://dimuro.pl/wp-content/uploads/2021/12/AdobeStock_463602283-Kopiowanie.jpeg" alt="Wnętrze">
+            </div>
+          </div>
+        </div>
 
-<div class="abc--cennik-image abc--reveal">
-<img src="sklad.jpeg" alt="Cennik" style="width:90%; height:85%; object-fit:cover; border-radius:1rem;">
-</div>
+      </div>
+    </div>
 
-<div class="abc--cennik-card">
+    <!-- PRAWA STRONA: KARTA Z CENNIKIEM -->
+    <div class="abc--cennik-card abc--reveal">
+      
+      <!-- TOP BAR: TABS + PAGINACJA -->
+      <div class="abc--cennik-topbar">
+        <div class="abc--cennik-tabs">
+          <button class="abc--tab active magnetic" data-type="damskie">Kobieta</button>
+          <button class="abc--tab magnetic" data-type="meskie">Mężczyzna</button>
+          <div class="abc--tab-line"></div>
+        </div>
 
-<div class="abc--cennik-tabs abc--reveal">
-<button class="abc--tab active magnetic" data-type="damskie" style="color: #000 !important;">Kobieta</button>
-<button class="abc--tab magnetic" data-type="meskie" style="color: #000 !important;">Mężczyzna</button>
-</div>
+        <!-- PAGINACJA -->
+        <div class="abc--pagination-container">
+          <button class="abc--pag-btn abc--prev" aria-label="Poprzednia strona">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span class="abc--pag-counter">01 / 02</span>
+          <button class="abc--pag-btn abc--next" aria-label="Następna strona">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
 
-<div class="abc--cennik-list">
+      <!-- LISTA USŁUG -->
+      <div class="abc--cennik-list">
+        <!-- DAMSKIE -->
+        <div class="abc--cennik-group active" data-type="damskie">
+          <div class="abc--item"><span class="abc--name">Strzyżenie stylizacyjne</span><div class="abc--meta"><span class="abc--price">70 zł+</span><span class="abc--time">1 godz.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Koloryzacja + Modelowanie</span><div class="abc--meta"><span class="abc--price">400 zł+</span><span class="abc--time">3 godz. 30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Balayage / Ombre Premium</span><div class="abc--meta"><span class="abc--price">450 zł+</span><span class="abc--time">4 godz. 30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Rytuał Pielęgnacyjny Kérastase</span><div class="abc--meta"><span class="abc--price">300 zł</span><span class="abc--time">4 godz. 30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Przedłużanie Włosów (Premium)</span><div class="abc--meta"><span class="abc--price">400 zł</span><span class="abc--time">5 godz. 30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Tonowanie Refleksów</span><div class="abc--meta"><span class="abc--price">300 zł+</span><span class="abc--time">3 godz. 30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Czesanie Wieczorowe / Ślubne</span><div class="abc--meta"><span class="abc--price">400 zł+</span><span class="abc--time">4 godz. 30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Keratynowe Prostowanie</span><div class="abc--meta"><span class="abc--price">450 zł</span><span class="abc--time">5 godz.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Botoks na Włosy (Regeneracja)</span><div class="abc--meta"><span class="abc--price">320 zł</span><span class="abc--time">3 godz. 30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Konsultacja Trychologiczna</span><div class="abc--meta"><span class="abc--price">150 zł</span><span class="abc--time">45 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Sauna ozonowa z ampułką</span><div class="abc--meta"><span class="abc--price">120 zł</span><span class="abc--time">1 godz.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Peeling skóry głowy</span><div class="abc--meta"><span class="abc--price">90 zł</span><span class="abc--time">30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Modelowanie AirTouch</span><div class="abc--meta"><span class="abc--price">500 zł</span><span class="abc--time">5 godz.</span></div></div>
+        </div>
 
-<!-- DAMSKIE -->
+        <!-- MĘSKIE -->
+        <div class="abc--cennik-group" data-type="meskie">
+          <div class="abc--item"><span class="abc--name">Strzyżenie Klasyczne</span><div class="abc--meta"><span class="abc--price">70 zł+</span><span class="abc--time">1 godz.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Strzyżenie + Repigmentacja siwizny</span><div class="abc--meta"><span class="abc--price">180 zł</span><span class="abc--time">1 godz. 15 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Trymowanie brody z brzytwą</span><div class="abc--meta"><span class="abc--price">90 zł</span><span class="abc--time">45 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Combo (Włosy + Broda Premium)</span><div class="abc--meta"><span class="abc--price">150 zł</span><span class="abc--time">1 godz. 30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Golenie Głowy na gładko</span><div class="abc--meta"><span class="abc--price">80 zł</span><span class="abc--time">45 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Nawilżanie brody ręcznikiem</span><div class="abc--meta"><span class="abc--price">60 zł</span><span class="abc--time">30 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Męski Kamuflaż Siwizny</span><div class="abc--meta"><span class="abc--price">100 zł</span><span class="abc--time">40 min.</span></div></div>
+          <div class="abc--item"><span class="abc--name">Depilacja woskiem (Uszy/Nos)</span><div class="abc--meta"><span class="abc--price">40 zł</span><span class="abc--time">15 min.</span></div></div>
+        </div>
+      </div>
 
-<div class="abc--cennik-group active" data-type="damskie">
+      <!-- LINK ZAREZERWUJ -->
+      <div class="abc--toggle-wrapper">
+        <a href="https://booksy.com" target="_blank" class="abc--toggle magnetic">
+          <span class="abc--btn-text">Zarezerwuj wizytę</span>
+          <svg class="abc--arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H2M11 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
 
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">70 zł+</span><span class="abc--time">1h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">400 zł+</span><span class="abc--time">3h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">450 zł+</span><span class="abc--time">4h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">300 zł</span><span class="abc--time">4h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">400 zł</span><span class="abc--time">5h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">300 zł+</span><span class="abc--time">3h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">400 zł+</span><span class="abc--time">4h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">450 zł</span><span class="abc--time">5h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">320 zł</span><span class="abc--time">3h 30min</span></div></div>
-
-<div class="abc--more">
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">0 zł</span><span class="abc--time">0h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">0 zł</span><span class="abc--time">0h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">0 zł</span><span class="abc--time">0h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">0 zł</span><span class="abc--time">0h</span></div></div>
-
-
-</div>
-
-</div>
-
-<!-- MĘSKIE -->
-
-<div class="abc--cennik-group" data-type="meskie">
-
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">70 zł+</span><span class="abc--time">1h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">400 zł+</span><span class="abc--time">3h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">450 zł+</span><span class="abc--time">4h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">300 zł</span><span class="abc--time">4h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">400 zł</span><span class="abc--time">5h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">300 zł+</span><span class="abc--time">3h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">400 zł+</span><span class="abc--time">4h 30min</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">450 zł</span><span class="abc--time">5h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">320 zł</span><span class="abc--time">3h 30min</span></div></div>
-
-<div class="abc--more">
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">0 zł</span><span class="abc--time">0h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">0 zł</span><span class="abc--time">0h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">0 zł</span><span class="abc--time">0h</span></div></div>
-<div class="abc--item abc--reveal"><span class="abc--name">Przykład</span><div><span class="abc--price">0 zł</span><span class="abc--time">0h</span></div></div>
-
-
-</div>
-
-</div>
-
-</div>
-
-<button class="abc--toggle magnetic" style="color: #000 !important;">Zobacz więcej</button>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
 <style>
-/* PREMIUM REVEAL */
-
-.abc--reveal{
-opacity:0;
-transform:translateY(3.5rem) scale(0.98);
-filter:blur(0.1rem);
-transition:
-opacity 1.1s cubic-bezier(.19,1,.22,1),
-transform 1.1s cubic-bezier(.19,1,.22,1),
-filter 1.1s cubic-bezier(.19,1,.22,1);
-will-change:opacity,transform,filter;
+:root {
+  --color-dark: #111111;
+  --color-muted: #767676;
+  --color-border: #e2e2e2;
+  --color-bg: #fafafa;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-.abc--reveal.show{
-opacity:1;
-transform:translateY(0) scale(1);
-filter:blur(0);
+/* --- ANIMACJE REVEAL --- */
+.abc--reveal-bento {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.abc--reveal-bento.show { opacity: 1; transform: translateY(0) scale(1); }
+
+.abc--reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.abc--reveal.show { opacity: 1; transform: translateY(0); }
+
+/* --- BAZA --- */
+.abc--cennik {
+  padding: 8vw 0;
+  background: var(--color-bg);
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-
-
-.abc--cennik{
-padding:8vh 0;
-background:#f4f4f4;
+.abc--cennik-wrap {
+  width: 88%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6vw;
+  align-items: flex-start;
 }
 
-.abc--cennik-wrap{
-width:85%;
-margin:auto;
-display:flex;
-gap:4rem;
-align-items:stretch;
+/* --- GALERIA BENTO DESKTOP --- */
+.abc--cennik-image-frame { 
+  position: relative; 
+  width: 100%; 
+  padding-top: 0.5rem;
+}
+.abc--bento-container {
+  position: sticky;
+  top: 10vh;
+  height: calc(100vh - 20vh);
+  max-height: 720px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2.2fr 3.8fr; /* Podział wysokości na zdjęcie górne i dolny moduł */
+  gap: 14px; 
+}
+.abc--bento-item { position: relative; background: #f0f0f0; border-radius: 14px; overflow: hidden; }
+.abc--bento-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.abc--bento-item:hover img { transform: scale(1.03); }
+
+/* Pozycjonowanie PC */
+.abc--bento-main { width: 100%; height: 100%; }
+
+.abc--bento-row-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  height: 100%;
+}
+.abc--bento-img-1 { grid-column: 1 / 4; height: 100%; }
+.abc--bento-right-stack {
+  grid-column: 4 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+.abc--bento-img-2, .abc--bento-img-3 { flex: 1; height: 100%; }
+
+/* --- TOP BAR --- */
+.abc--cennik-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.75rem;
+}
+.abc--cennik-tabs { display: flex; gap: 3rem; position: relative; }
+.abc--tab {
+  background: transparent;
+  border: none;
+  font-size: 1.15rem;
+  font-weight: 400;
+  cursor: pointer;
+  color: var(--color-muted);
+  padding: 0 0 0.25rem 0;
+  transition: color 0.3s ease;
+}
+.abc--tab.active { color: var(--color-dark); font-weight: 500; }
+.abc--tab-line {
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  height: 2px;
+  background: var(--color-dark);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, width;
 }
 
-.abc--cennik-image{
-flex:1;
-min-height:60vh;
-border-radius:1rem;
-overflow:hidden;
+/* --- PAGINACJA --- */
+.abc--pagination-container { display: flex; align-items: center; gap: 0.75rem; padding-bottom: 0.1rem; transition: opacity 0.3s ease; }
+.abc--pag-btn {
+  background: transparent; border: none; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--color-dark); border-radius: 50%; transition: background-color 0.2s ease, opacity 0.2s ease;
 }
+.abc--pag-btn:hover:not(:disabled) { background: rgba(0,0,0,0.05); }
+.abc--pag-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+.abc--pag-counter { font-size: 0.85rem; font-weight: 500; color: var(--color-muted); min-width: 45px; text-align: center; }
 
-.abc--cennik-card{
-flex:1;
-background:white;
-padding:3rem;
-border-radius:1rem;
-display:flex;
-flex-direction:column;
-gap:1rem;
+/* --- LISTA USŁUG --- */
+.abc--cennik-list { position: relative; width: 100%; }
+.abc--cennik-group { display: none; flex-direction: column; width: 100%; }
+.abc--cennik-group.active { display: flex; }
+.abc--item {
+  display: flex; justify-content: space-between; align-items: flex-end; padding: 1.15rem 0; border-bottom: 1px solid var(--color-border);
+  opacity: 0; transform: translateY(8px); animation: itemFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+.abc--cennik-group > .abc--item:first-child { padding-top: 0; }
+@keyframes itemFadeIn { to { opacity: 1; transform: translateY(0); } }
 
-.abc--cennik-tabs{
-display:flex;
-gap:1rem;
-margin-bottom:0.5rem;
+.abc--name { font-size: 1.1rem; font-weight: 400; max-width: 70%; letter-spacing: -0.01em; line-height: 1.4; text-align: left; }
+.abc--meta { text-align: right; display: flex; flex-direction: column; gap: 0.15rem; flex-shrink: 0; }
+.abc--price { font-size: 1.1rem; font-weight: 500; }
+.abc--time { font-size: 0.85rem; color: var(--color-muted); }
+
+/* --- REZERWACJA --- */
+.abc--toggle-wrapper { margin-top: 2.5rem; }
+.abc--toggle {
+  text-decoration: none; background: transparent; border: 1px solid var(--color-dark); border-radius: 2rem;
+  padding: 0.8rem 2.2rem; font-size: 0.95rem; font-weight: 400; display: inline-flex; align-items: center; gap: 0.75rem; color: var(--color-dark); transition: all 0.4s ease;
 }
+.abc--toggle:hover { background: var(--color-dark); color: #fff; }
+.abc--arrow { transition: transform 0.4s ease; }
+.abc--toggle:hover .abc--arrow { transform: rotate(45deg); }
 
-.abc--tab{
-background:transparent;
-border:none;
-font-size:1.2rem;
-cursor:pointer;
-opacity:0.5;
-transition:0.3s;
+/* --- RESPONSYWNOŚĆ --- */
+@media(max-width: 1024px) {
+  .abc--cennik { padding: 10vw 0; }
+  .abc--cennik-wrap { grid-template-columns: 1fr; width: 90%; gap: 2rem; }
+  .abc--cennik-image-frame { padding-top: 0; }
+  
+  .abc--bento-container {
+    position: relative; top: 0; height: auto; max-height: none;
+    display: flex; flex-direction: column; gap: 8px;
+    grid-template-rows: none; grid-template-columns: none;
+  }
+  
+  .abc--bento-main { width: 100%; aspect-ratio: 21 / 9; }
+  
+  .abc--bento-row-wrapper {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    height: 180px;
+  }
+  
+  .abc--bento-img-1 {
+    flex: 1;
+    width: 50%;
+    height: 100%;
+  }
+  
+  .abc--bento-right-stack {
+    flex: 1;
+    width: 50%;
+    gap: 8px;
+    height: 100%;
+  }
+  .abc--bento-img-2, .abc--bento-img-3 {
+    flex: 1;
+    height: calc(50% - 4px);
+  }
+  
+  .abc--cennik-topbar { margin-bottom: 2rem; }
+  .abc--cennik-tabs { gap: 2rem; }
+  .abc--item { align-items: flex-start; }
+  .abc--name { text-align: left; max-width: 65%; }
+  .abc--toggle { width: 100%; justify-content: center; }
 }
-
-.abc--tab.active{
-opacity:1;
-font-weight:600;
-}
-
-.abc--cennik-list{
-position:relative;
-}
-
-.abc--cennik-group{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-display:flex;
-flex-direction:column;
-gap:0.9rem;
-
-opacity:0;
-transform:translateY(10px);
-pointer-events:none;
-
-transition:
-opacity .35s ease,
-transform .35s ease;
-}
-
-.abc--cennik-group.active{
-opacity:1;
-transform:translateY(0);
-pointer-events:auto;
-position:relative;
-}
-
-.abc--item{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding-bottom:0.6rem;
-border-bottom:0.08rem dotted #ccc;
-}
-
-.abc--item div{
-text-align:right;
-}
-
-.abc--price{
-font-weight:600;
-display:block;
-}
-
-.abc--time{
-font-size:0.9rem;
-opacity:0.6;
-}
-
-.abc--more{
-display:none;
-}
-
-.abc--more.open{
-display:block;
-}
-
-.abc--toggle{
-background:none;
-border:none;
-cursor:pointer;
-font-size:1rem;
-opacity:0.7;
-margin-top:0.5rem;
-}
-
-/* PC limit 12 */
-
-.abc--cennik-group .abc--item:nth-child(n+13){
-display:none;
-}
-
-.abc--cennik-group.open .abc--item{
-display:flex;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.abc--cennik-wrap{
-flex-direction:column;
-width:94%;
-}
-
-.abc--cennik-image{
-display:none;
-}
-
-.abc--cennik-card{
-padding:1.6rem;
-}
-
-/* mobile limit 7 */
-
-.abc--cennik-group .abc--item:nth-child(n+8){
-display:none;
-}
-.abc--name {
-  text-align: left;
-  max-width: 70%;
-}
-.abc--price {
-  max-width: max-content;
-}
-}
-/* tablety pionowo (portrait) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .abc--name {
-  text-align: left;
-  max-width: 70%;
-}
-.abc--price {
-  max-width: max-content;
-}
-}
-.abc--more{
-display:none;
-width:100%;
-}
-
-.abc--more.open{
-display:flex;
-flex-direction:column;
-gap:0.9rem;
-width:100%;
-}
-
-.abc--more .abc--item{
-width:100%;
-}
-
-
-
-/* tablety poziomo (landscape) */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-.abc--name {
-  text-align: left;
-  max-width: 70%;
-}
-.abc--price {
-  max-width: max-content;
-}}
-
 </style>
 
-
-
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll('.abc--tab');
+  const groups = document.querySelectorAll('.abc--cennik-group');
+  const tabLine = document.querySelector('.abc--tab-line');
+  
+  const pagContainer = document.querySelector('.abc--pagination-container');
+  const pagCounter = document.querySelector('.abc--pag-counter');
+  const prevBtn = document.querySelector('.abc--prev');
+  const nextBtn = document.querySelector('.abc--next');
 
-const tabs = document.querySelectorAll('.abc--tab');
-const groups = document.querySelectorAll('.abc--cennik-group');
-const toggle = document.querySelector('.abc--toggle');
+  let rawData = {};
+  let cennikData = {};
+  let currentType = 'damskie';
+  let currentLimit = 8;
 
+  groups.forEach(group => {
+    const type = group.dataset.type;
+    rawData[type] = Array.from(group.querySelectorAll('.abc--item'));
+    group.innerHTML = ''; 
+  });
 
-/* TABY */
+  function paginateData() {
+    const isMobile = window.innerWidth <= 1024;
+    const newLimit = isMobile ? 5 : 8;
 
-tabs.forEach(tab => {
+    if (newLimit === currentLimit && Object.keys(cennikData).length > 0) return;
+    currentLimit = newLimit;
 
-tab.addEventListener('click', () => {
+    Object.keys(rawData).forEach(type => {
+      const allItems = rawData[type];
+      const prevActivePage = cennikData[type] ? cennikData[type].currentPage : 0;
+      const totalPages = Math.ceil(allItems.length / currentLimit);
 
-tabs.forEach(t => t.classList.remove('active'));
-tab.classList.add('active');
+      cennikData[type] = {
+        all: allItems,
+        currentPage: prevActivePage >= totalPages ? 0 : prevActivePage,
+        totalPages: totalPages
+      };
+    });
 
-groups.forEach(group=>{
-group.classList.toggle(
-'active',
-group.dataset.type === tab.dataset.type
-);
+    renderPage(currentType);
+  }
+
+  function renderPage(type) {
+    const groupEl = document.querySelector(`.abc--cennik-group[data-type="${type}"]`);
+    if (!groupEl || !cennikData[type]) return;
+
+    const data = cennikData[type];
+    groupEl.innerHTML = '';
+
+    const start = data.currentPage * currentLimit;
+    const end = start + currentLimit;
+    const pageItems = data.all.slice(start, end);
+
+    pageItems.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.03}s`;
+      groupEl.appendChild(item);
+    });
+
+    if (data.totalPages <= 1) {
+      pagContainer.style.opacity = '0';
+      pagContainer.style.pointerEvents = 'none';
+    } else {
+      pagContainer.style.opacity = '1';
+      pagContainer.style.pointerEvents = 'auto';
+      
+      const curPageStr = String(data.currentPage + 1).padStart(2, '0');
+      const totPagesStr = String(data.totalPages).padStart(2, '0');
+      pagCounter.textContent = `${curPageStr} / ${totPagesStr}`;
+
+      prevBtn.disabled = data.currentPage === 0;
+      nextBtn.disabled = data.currentPage === data.totalPages - 1;
+    }
+  }
+
+  function updateTabLine(activeTab) {
+    if (!activeTab || !tabLine) return;
+    const tabRect = activeTab.getBoundingClientRect();
+    const tabsContainerRect = activeTab.parentElement.getBoundingClientRect();
+    tabLine.style.width = `${tabRect.width}px`;
+    tabLine.style.transform = `translateX(${tabRect.left - tabsContainerRect.left}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (cennikData[currentType].currentPage > 0) {
+      cennikData[currentType].currentPage--;
+      renderPage(currentType);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (cennikData[currentType].currentPage < cennikData[currentType].totalPages - 1) {
+      cennikData[currentType].currentPage++;
+      renderPage(currentType);
+    }
+  });
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      if (tab.classList.contains('active')) return;
+
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      updateTabLine(tab);
+
+      const prevGroup = document.querySelector('.abc--cennik-group.active');
+      if (prevGroup) prevGroup.classList.remove('active');
+
+      currentType = tab.dataset.type;
+      const nextGroup = document.querySelector(`.abc--cennik-group[data-type="${currentType}"]`);
+      if (nextGroup) {
+        nextGroup.classList.add('active');
+        renderPage(currentType);
+      }
+    });
+  });
+
+  paginateData();
+  window.addEventListener('resize', () => {
+    paginateData();
+    updateTabLine(document.querySelector('.abc--tab.active'));
+  });
+
+  setTimeout(() => {
+    updateTabLine(document.querySelector('.abc--tab.active'));
+  }, 100);
+
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "-5% 0px -5% 0px" });
+
+  document.querySelectorAll('.abc--reveal-bento').forEach((el, index) => {
+    el.style.transitionDelay = `${(index % 3) * 0.1}s`;
+    scrollObserver.observe(el);
+  });
+  document.querySelectorAll('.abc--reveal').forEach(el => scrollObserver.observe(el));
 });
-
-/* reset rozwinięcia */
-
-groups.forEach(g=>g.classList.remove('open'));
-
-document.querySelectorAll('.abc--more').forEach(m=>{
-m.classList.remove('open');
-});
-
-toggle.textContent='Zobacz więcej';
-
-});
-
-});
-
-
-/* ZOBACZ WIĘCEJ */
-
-toggle.addEventListener('click', () => {
-
-const active = document.querySelector('.abc--cennik-group.active');
-if(!active) return;
-
-const more = active.querySelector('.abc--more');
-if(!more) return;
-
-const open = more.classList.toggle('open');
-
-active.classList.toggle('open');
-
-toggle.textContent = open ? 'Zwiń' : 'Zobacz więcej';
-
-
-/* natychmiastowa animacja elementów */
-
-if(open){
-
-const items = Array.from(more.querySelectorAll('.abc--item'));
-
-items.sort((a,b)=>{
-return a.offsetTop - b.offsetTop;
-});
-
-items.forEach(item=>{
-item.classList.add('show');
-});
-
-}
-
-});
-
-
-/* MOBILE – przenoszenie elementów */
-
-function setupCennikMobile(){
-
-const mobile = window.innerWidth <= 768;
-
-document.querySelectorAll('.abc--cennik-group').forEach(group=>{
-
-const items = Array.from(group.querySelectorAll(':scope > .abc--item'));
-const more = group.querySelector('.abc--more');
-if(!more) return;
-
-const limit = mobile ? 7 : 12;
-
-items.forEach((item,i)=>{
-if(i>=limit && item.parentNode!==more){
-more.appendChild(item);
-}
-});
-
-});
-
-}
-
-window.addEventListener('load',setupCennikMobile);
-window.addEventListener('resize',setupCennikMobile);
-
 </script>
 
 
@@ -3009,7 +3055,7 @@ window.addEventListener('resize',setupCennikMobile);
       <div class="contact-card">
         <span class="material-symbols-outlined contact-icon">location_on</span>
         <div class="contact-text">
-          <span class="value "><a href="#">Przykładowa 77/9, 81-472 Gdynia</a></span>
+          <span class="value "><a href="#">Przykładowa 77/9, Gdynia</a></span>
         </div>
       </div>
 
